@@ -50,7 +50,7 @@ class ReadConfigurationService {
         }
     }
 
-    def read() {
+   /* def read() {
         ObjectMapper objectMapper = new ObjectMapper();
         String path = "/home/ttn/Desktop/Config"
         def config = grailsApplication.config
@@ -62,7 +62,7 @@ class ReadConfigurationService {
             log.info("file name: " + file)
 
             if (file.exists()) {
-                org.springframework.core.io.Resource resource = defaultResourceLoader.getResource(file)
+                org.springframework.core.io.Resource resource = defaultResourceLoader.getResource(file.getPath())
                 if (finalLocation.endsWith('.groovy')) {
                     propertySource = loadGroovyConfig(resource, 'UTF-8')
                 } else if (finalLocation.endsWith('.yml')) {
@@ -76,7 +76,7 @@ class ReadConfigurationService {
                 log.debug("Config file not found: "+file)
             }
 
-            /*text = file.text
+            *//*text = file.text
             if (file ==~ ~/.*(?<=\.)(yml|properties)/) {
                 String data = convertYamlToJson(file.text)
 
@@ -99,14 +99,14 @@ class ReadConfigurationService {
                 //text = data.replace(':', ' = ').replace('{', '').replace('}', '').replace(',', '\n')
             }
 
-            config.merge(new ConfigSlurper().parse(text))*/
+            config.merge(new ConfigSlurper().parse(text))*//*
         }
         if (propertySource?.getSource() && !propertySource.getSource().isEmpty()) {
             environment.propertySources.addFirst(propertySource)
         }
         // }
         //return config
-    }
+    }*/
 
     String convertYamlToJson(String yaml) {
         ObjectMapper yamlReader = new ObjectMapper(new YAMLFactory());
